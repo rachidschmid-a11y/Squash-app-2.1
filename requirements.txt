@@ -9,3 +9,7 @@ supabase>=2.15,<3.0
 # "plotly"-Pakets ist -> hier direkt "plotly" statt "plotly-express".
 plotly>=6.0,<7.0
 matplotlib>=3.9,<4.0
+
+# Stellt die IANA-Zeitzonendatenbank bereit (für Europe/Berlin in zeit_utils.py),
+# falls das Server-Image sie nicht schon systemseitig mitbringt.
+tzdata>=2024.1
