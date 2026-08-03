@@ -1,5 +1,5 @@
 # Globale Spielerliste
-SPIELER = ["Jonas", "Marlon", "Paul", "Vossi"]
+SPIELER = ["Jonas", "Marlon", "Paul", "Vossi", "Karsten"]
 
 # Finanz-Parameter für Abrechnungslogik
 PLATZPREIS = 19
