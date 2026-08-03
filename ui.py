@@ -88,7 +88,7 @@ def render_abrechnung_page():
         gespielt_am = st.date_input("Gespielt am", date.today(), key="fin_date")
 
     st.write("**Mitspieler auswählen:**")
-    cols = st.columns(4)
+    cols = st.columns(len(cfg.SPIELER))
     auswahl = [p for i, p in enumerate(cfg.SPIELER) if cols[i].checkbox(p, key=f"check_{p}")]
 
     einheiten = st.number_input("Einheiten (45 Minuten)", min_value=1, max_value=20, value=1, key="fin_units")
