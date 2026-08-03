@@ -4,6 +4,7 @@ from datetime import datetime
 import config as cfg
 import database as db
 import export_utils
+import zeit_utils
 
 @st.dialog("Ergebnis wirklich löschen?")
 def confirm_delete_ergebnis_dialog(result_id, beschreibung):
@@ -81,6 +82,8 @@ def render_player_results_page():
         return
 
     df = pd.DataFrame(daten)
+    if "eingetragen_am" in df.columns:
+        df["eingetragen_am"] = zeit_utils.to_berlin_time_str(df["eingetragen_am"])
     st.dataframe(df, width="stretch")
 
     st.download_button(
