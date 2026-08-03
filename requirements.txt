@@ -1,0 +1,11 @@
+# Versionen gepinnt für reproduzierbare Installationen.
+# Getestet mit Python 3.11+ (siehe devcontainer.json).
+streamlit>=1.50,<2.0
+pandas>=2.2,<4.0
+supabase>=2.15,<3.0
+
+# Hinweis: "plotly-express" war der alte, seit Plotly 4.x obsolete Paketname.
+# Der Code importiert "plotly.express", das inzwischen Teil des reguären
+# "plotly"-Pakets ist -> hier direkt "plotly" statt "plotly-express".
+plotly>=6.0,<7.0
+matplotlib>=3.9,<4.0
