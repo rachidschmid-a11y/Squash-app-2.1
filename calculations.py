@@ -1,14 +1,15 @@
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone
 import database as db
 import config as cfg
+import zeit_utils
 
 def format_dataframe(df):
     df_clean = df.copy()
     if "gespielt_am" in df_clean.columns:
         df_clean["gespielt_am"] = pd.to_datetime(df_clean["gespielt_am"]).dt.strftime('%d.%m.%Y')
     if "eingetragen_am" in df_clean.columns:
-        df_clean["eingetragen_am"] = pd.to_datetime(df_clean["eingetragen_am"]).dt.strftime('%d.%m.%Y %H:%M')
+        df_clean["eingetragen_am"] = zeit_utils.to_berlin_time_str(df_clean["eingetragen_am"])
     cols = [c for c in cfg.ORDERED_COLUMNS if c in df_clean.columns]
     return df_clean[cols]
 
@@ -49,7 +50,7 @@ def speichern_logik(spieler, einheiten, eingetragen_von, gespielt_am, max_retrie
                 "einheiten": einheiten,
                 "kosten": kosten_pro_person,
                 "eingetragen_von": eingetragen_von,
-                "eingetragen_am": datetime.now().isoformat(),
+                "eingetragen_am": datetime.now(timezone.utc).isoformat(),
                 "gespielt_am": gespielt_am.isoformat(),
                 "abgerechnet": False
             })
