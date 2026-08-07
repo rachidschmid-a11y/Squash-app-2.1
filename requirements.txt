@@ -1,7 +1,7 @@
 # Versionen gepinnt für reproduzierbare Installationen.
 # Getestet mit Python 3.11+ (siehe devcontainer.json).
-# streamlit>=1.50,<2.0
-streamlit==1.56.0 # streamlit==1.50.0 funktioniert gut neue Versionen führen zum Absturz der App
+streamlit>=1.50,<2.0
+# streamlit==1.56.0 # streamlit==1.50.0 funktioniert gut neue Versionen führen zum Absturz der App
 pandas>=2.2,<4.0
 supabase>=2.15,<3.0
 
